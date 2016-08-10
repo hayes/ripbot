@@ -96,7 +96,7 @@ module.exports = function plusplus(robot) {
       if (reason) {
           message += ', ' + reasonScore + ' of which '
             + pluralize('', reasonScore, 'are', 'is')
-            + ' for ' + reason + '.'
+            + ' for ' + reason + (reason[reason.length - 1] === '.' ? '' : '.')
       }
     } else {
       message = 'ouch! ' + name + ' loses a Rip Point'
@@ -160,5 +160,5 @@ function pluralize(str, n, sfx, single) {
 }
 
 function cleanName(name) {
-  return name ? name.replace(/(^\s*@)|([,:\s]*$)/g, "").trim().toLowerCase() : name
+  return name ? name.replace(/(^\s*@)|([,:\s]*$)/g, '').trim().toLowerCase() : name
 }
